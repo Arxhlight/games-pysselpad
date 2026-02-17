@@ -1,5 +1,0 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UIToolkit/Stylesheets/M%C3%A5larbok.uss?fileID=7433441132597879392&amp;guid=e33626849c7cb754d987820d9b51493b&amp;type=3#Målarbok"/>
-    <ui:Label text="Målarbok" double-click-selects-word="false" style="-unity-font-definition: url(&quot;project://database/Assets/Font/Modak-Regular.ttf?fileID=12800000&amp;guid=e7d8d8f6ac45e3046ac29e665017e0c6&amp;type=3#Modak-Regular&quot;); font-size: 74px; -unity-text-outline-color: rgb(19, 17, 17); text-shadow: 0 0 0 rgb(188, 188, 188); -unity-text-align: upper-center; color: rgb(217, 172, 135); -unity-text-outline-width: 2px; -unity-font-style: normal;"/>
-    <ui:Image/>
-</ui:UXML>

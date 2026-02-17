@@ -1,0 +1,82 @@
+:root {
+}
+
+.drop-sign--container {
+    flex-grow: 0;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 40%;
+    height: 40%;
+    aspect-ratio: auto;
+    background-image: none;
+    flex-basis: auto;
+    flex-shrink: 0;
+    align-items: center;
+    align-content: center;
+    border-left-color: rgb(234, 234, 234);
+    border-right-color: rgb(234, 234, 234);
+    border-top-color: rgb(234, 234, 234);
+    border-bottom-color: rgb(234, 234, 234);
+    border-top-width: 0;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 0;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: rgb(211, 231, 212);
+}
+
+.default--text {
+    width: 100%;
+    height: 100%;
+    font-size: 57px;
+    -unity-font-definition: url("project://database/Assets/Font/Modak-Regular.ttf?fileID=12800000&guid=e7d8d8f6ac45e3046ac29e665017e0c6&type=3#Modak-Regular");
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    aspect-ratio: auto;
+    color: rgb(234, 226, 175);
+    -unity-text-align: middle-center;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    -unity-text-outline-color: rgb(63, 50, 50);
+    -unity-text-outline-width: 0.8px;
+    text-shadow: 0.7px 0.4px 2.5px rgb(45, 45, 45);
+    letter-spacing: 0;
+    -unity-text-auto-size: none;
+    -unity-text-generator: advanced;
+}
+
+.drop-sign-up--container {
+    flex-grow: 0;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 40%;
+    height: 40%;
+    aspect-ratio: auto;
+    background-image: none;
+    flex-basis: auto;
+    flex-shrink: 0;
+    align-items: center;
+    align-content: center;
+    border-left-color: rgb(234, 226, 174);
+    border-right-color: rgb(234, 226, 174);
+    border-top-color: rgb(234, 226, 174);
+    border-bottom-color: rgb(234, 226, 174);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: rgb(211, 231, 212);
+    translate: 0 -194px;
+    opacity: 0;
+}

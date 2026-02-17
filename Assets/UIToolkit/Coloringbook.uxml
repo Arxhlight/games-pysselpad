@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIToolkit/Stylesheets/Coloringbook.uss?fileID=7433441132597879392&amp;guid=e33626849c7cb754d987820d9b51493b&amp;type=3#Coloringbook"/>
+    <ui:VisualElement name="coloringbook-background" style="flex-grow: 0; width: 100%; height: 100%; background-color: rgb(234, 234, 230);">
+        <ui:VisualElement name="coloringbook-header--container" style="flex-grow: 0; width: auto; height: 15%; flex-shrink: 0; justify-content: center;">
+            <ui:VisualElement name="sign--container" class="drop-sign--container drop-sign-up--container" style="transition-duration: 0.4s; transition-timing-function: ease-out-bounce;">
+                <ui:Label text="New Menu Test" name="Label" class="default--text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="coloringbook-body--container" style="height: auto; width: auto; flex-grow: 1; align-content: center; flex-direction: row; flex-wrap: wrap; align-items: flex-end;">
+            <ui:VisualElement name="coloringbook-sidebar-left--container" style="flex-grow: 0; width: 15%; height: 100%; flex-shrink: 0;"/>
+            <ui:VisualElement name="coloringbook-mid--container" style="flex-grow: 1; flex-shrink: 0; aspect-ratio: 1.777778;">
+                <ui:Image name="canvas--image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/RenderTexture/RT_Canvas.renderTexture?fileID=8400000&amp;guid=33ad16d054b45104197704f51f256f78&amp;type=2#RT_Canvas&quot;); -unity-slice-type: sliced; -unity-slice-scale: 1px; -unity-background-scale-mode: scale-to-fit;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="coloringbook-sidebar-right--container" style="flex-grow: 0; width: 15%; height: 100%; flex-shrink: 0;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="coloringbook-footer--container" style="flex-grow: 0; height: 12%; width: auto; flex-shrink: 0; flex-direction: row; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;"/>
+    </ui:VisualElement>
+</ui:UXML>
