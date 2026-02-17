@@ -42,7 +42,6 @@ public class DrawingTools : MonoBehaviour
     {
         panelSettings = uiDocument.panelSettings;
         canvasImage = uiDocument.rootVisualElement.Q<VisualElement>(imageElementName);
-        
         if (canvasImage == null)
         {
             Debug.LogError("Canvas image not found!");
@@ -161,17 +160,9 @@ public class DrawingTools : MonoBehaviour
         Debug.Log($"Runtime sprite copy created for: {spriteRenderer.gameObject.name}");
     }
     
-    public void Fill(InputAction.CallbackContext context)
-    {
-        //TODO if the canvaspointerdown event is not fired we dont need to fill anything bcs we have not hit anything
-        if (context.performed)
-        {
-            Debug.Log("Clicking Canvas and Filling texture...");
-            PaintTexture();
-        }
-    }
 
-    void PaintTexture()
+
+    public void PaintTexture()
     {
         if (spriteRenderer == null || runtimeTexture == null)
         {
@@ -183,10 +174,10 @@ public class DrawingTools : MonoBehaviour
 
         Debug.Log($"Painting at pixel ({texCoords.x}, {texCoords.y})");
 
-        Color paintColor = palette.PickedColor;
+        Color paintColor = palette.PickedColor;  // TODO refactor
         Color boarderColor = Color.black;
         
-        runtimeTexture.FloodFillBorder(texCoords.x, texCoords.y, paintColor, boarderColor, 0.05f);
+        runtimeTexture.FloodFillBorder(texCoords.x, texCoords.y, Color.aquamarine, boarderColor, 0.05f);
         // runtimeTexture.FloodFillArea(texCoords.x, texCoords.y, paintColor, 0.05f);
 
         runtimeTexture.Apply(updateMipmaps: false, makeNoLongerReadable: false);

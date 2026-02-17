@@ -35,20 +35,13 @@ public class Palette : MonoBehaviour
         filter.useDepth = true;
     }
 
-    public void Pick(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("Clicking Canvas and Picking color...");
-            PickColorAtMouse();
-        }
-    }
+
 
     /// <summary>
     /// Finds a color sprite under the mouse and picks the color at that pixel.
     /// Uses Physics2D.Raycast with ContactFilter2D for layer filtering.
     /// </summary>
-    void PickColorAtMouse()
+    public void PickColorAtMouse()
     {
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);

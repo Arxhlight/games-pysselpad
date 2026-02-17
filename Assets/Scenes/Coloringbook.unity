@@ -395,6 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864045351}
   - component: {fileID: 864045350}
+  - component: {fileID: 864045352}
   m_Layer: 0
   m_Name: Coloringbook UI
   m_TagString: Untagged
@@ -440,6 +441,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864045352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864045349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0440ed42580e58a48b3d135d0a3d8a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stilus
+  palette: {fileID: 870650086}
+  uiDocument: {fileID: 864045350}
+  renderTexture: {fileID: 8400000, guid: 33ad16d054b45104197704f51f256f78, type: 2}
+  targetSprite: {fileID: 256666859}
+  renderCamera: {fileID: 443335839}
 --- !u!1 &870650084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6241991673518462022, guid: fd8dd442f514e23428a1b39edde0e21e, type: 3}
@@ -728,29 +746,13 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 12.48, y: 3.64}
   m_EdgeRadius: 0
---- !u!1 &1675261265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 548523002297995466, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-  m_PrefabInstance: {fileID: 1877616883971569386}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1675261266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-  m_PrefabInstance: {fileID: 1877616883971569386}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675261265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0440ed42580e58a48b3d135d0a3d8a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Stilus
 --- !u!114 &1675261268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675261265}
+  m_GameObject: {fileID: 2130796738225432096}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -771,9 +773,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1675261266}
-        m_TargetAssemblyTypeName: Stilus, Assembly-CSharp
-        m_MethodName: Fill
+      - m_Target: {fileID: 6512635330821930020}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: AreaFill
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -931,94 +933,53 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1001 &1877616883971569386
-PrefabInstance:
+--- !u!1 &2130796738225432096
+GameObject:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6512635330821930019}
+  - component: {fileID: 1675261268}
+  - component: {fileID: 6512635330821930020}
+  m_Layer: 0
+  m_Name: Input Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6512635330821930019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130796738225432096}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 548523002297995466, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_Name
-      value: Input Handler
-      objectReference: {fileID: 0}
-    - target: {fileID: 548523002297995466, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: palette
-      value: 
-      objectReference: {fileID: 870650086}
-    - target: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: uiDocument
-      value: 
-      objectReference: {fileID: 864045350}
-    - target: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: renderCamera
-      value: 
-      objectReference: {fileID: 443335839}
-    - target: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: targetSprite
-      value: 
-      objectReference: {fileID: 256666859}
-    - target: {fileID: 3936933504151143991, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: renderTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 33ad16d054b45104197704f51f256f78, type: 2}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4642971283177999049, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 548523002297995466, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1675261268}
-  m_SourcePrefab: {fileID: 100100000, guid: f129eadca56c1524c9b515a05f1e3934, type: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6512635330821930020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130796738225432096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39231968ff678cd41819fa23f11a0807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  drawingTools: {fileID: 864045352}
+  palette: {fileID: 870650086}
 --- !u!1001 &8267337822273489710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1091,7 +1052,7 @@ SceneRoots:
   - {fileID: 443335840}
   - {fileID: 1196639306}
   - {fileID: 1615247861}
-  - {fileID: 1877616883971569386}
+  - {fileID: 6512635330821930019}
   - {fileID: 8267337822273489710}
   - {fileID: 864045351}
   - {fileID: 256666859}
