@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &256666856
+--- !u!1 &374161607
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,23 +127,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 256666859}
-  - component: {fileID: 256666858}
-  - component: {fileID: 256666857}
+  - component: {fileID: 374161610}
+  - component: {fileID: 374161609}
+  - component: {fileID: 374161608}
+  - component: {fileID: 374161611}
   m_Layer: 3
-  m_Name: savannah
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &256666857
+--- !u!61 &374161608
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256666856}
+  m_GameObject: {fileID: 374161607}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -175,22 +176,22 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.29, y: 10.8}
-    newSize: {x: 19.29, y: 10.8}
+    oldSize: {x: 19.2, y: 10.8}
+    newSize: {x: 19.2, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 19.29, y: 10.8}
+  m_Size: {x: 19.2, y: 10.8}
   m_EdgeRadius: 0
---- !u!212 &256666858
+--- !u!212 &374161609
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256666856}
+  m_GameObject: {fileID: 374161607}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -232,23 +233,23 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 58ffa7bb9fd030a4396eb19478a86963, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5e0e85714502a4409e92e96036339fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.29, y: 10.8}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!4 &256666859
+--- !u!4 &374161610
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256666856}
+  m_GameObject: {fileID: 374161607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -257,6 +258,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374161611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374161607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a608b4a7dfbac9249be6f9733bbbd8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canvas
+  canvas: {fileID: 11400000, guid: 080858f63746d5444aa7ecab82f72190, type: 2}
+  texture: {fileID: 0}
+  size: {x: 0, y: 0}
 --- !u!1 &443335836
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +370,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -456,7 +472,7 @@ MonoBehaviour:
   palette: {fileID: 870650086}
   uiDocument: {fileID: 864045350}
   renderTexture: {fileID: 8400000, guid: 33ad16d054b45104197704f51f256f78, type: 2}
-  targetSprite: {fileID: 256666859}
+  targetSprite: {fileID: 374161610}
   renderCamera: {fileID: 443335839}
 --- !u!1 &870650084 stripped
 GameObject:
@@ -507,8 +523,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 870650086}
         m_TargetAssemblyTypeName: Palette, Assembly-CSharp
-        m_MethodName: Pick
-        m_Mode: 0
+        m_MethodName: PickColorAtMouse
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -694,8 +710,8 @@ Transform:
   m_GameObject: {fileID: 1615247859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.27, z: 0}
-  m_LocalScale: {x: 0.51, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: -6.34, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -858,7 +874,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1052,7 +1068,7 @@ SceneRoots:
   - {fileID: 443335840}
   - {fileID: 1196639306}
   - {fileID: 1615247861}
-  - {fileID: 6512635330821930019}
   - {fileID: 8267337822273489710}
+  - {fileID: 374161610}
   - {fileID: 864045351}
-  - {fileID: 256666859}
+  - {fileID: 6512635330821930019}
