@@ -43,6 +43,7 @@ public class Palette : MonoBehaviour
     /// </summary>
     public void PickColorAtMouse()
     {
+        
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
         Vector2 rayDirection = Vector2.down;
@@ -68,6 +69,8 @@ public class Palette : MonoBehaviour
         }
 
         SetColor();
+        
+        Debug.LogWarning($"Picked color at pixel ({worldPos.x}, {worldPos.y}): {PickedColor}");
     }
 
     /// <summary>
