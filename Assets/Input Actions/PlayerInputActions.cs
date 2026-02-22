@@ -102,7 +102,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pick"",
+                    ""name"": ""ColorPick"",
                     ""type"": ""Button"",
                     ""id"": ""d0218067-a642-49e6-8d23-55d544989551"",
                     ""expectedControlType"": """",
@@ -130,7 +130,35 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pick"",
+                    ""action"": ""ColorPick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Math"",
+            ""id"": ""d369feec-b251-4400-9346-842ac5e5e4da"",
+            ""actions"": [
+                {
+                    ""name"": ""Divide"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbf89165-d55e-4f1b-9ae3-83fa410214f0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""26e2d718-b2cf-472b-8e19-09fa9a176c06"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Divide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -142,12 +170,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Paint
         m_Paint = asset.FindActionMap("Paint", throwIfNotFound: true);
         m_Paint_Fill = m_Paint.FindAction("Fill", throwIfNotFound: true);
-        m_Paint_Pick = m_Paint.FindAction("Pick", throwIfNotFound: true);
+        m_Paint_ColorPick = m_Paint.FindAction("ColorPick", throwIfNotFound: true);
+        // Math
+        m_Math = asset.FindActionMap("Math", throwIfNotFound: true);
+        m_Math_Divide = m_Math.FindAction("Divide", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
     {
         UnityEngine.Debug.Assert(!m_Paint.enabled, "This will cause a leak and performance issues, PlayerInputActions.Paint.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Math.enabled, "This will cause a leak and performance issues, PlayerInputActions.Math.Disable() has not been called.");
     }
 
     /// <summary>
@@ -224,7 +256,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Paint;
     private List<IPaintActions> m_PaintActionsCallbackInterfaces = new List<IPaintActions>();
     private readonly InputAction m_Paint_Fill;
-    private readonly InputAction m_Paint_Pick;
+    private readonly InputAction m_Paint_ColorPick;
     /// <summary>
     /// Provides access to input actions defined in input action map "Paint".
     /// </summary>
@@ -241,9 +273,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Fill => m_Wrapper.m_Paint_Fill;
         /// <summary>
-        /// Provides access to the underlying input action "Paint/Pick".
+        /// Provides access to the underlying input action "Paint/ColorPick".
         /// </summary>
-        public InputAction @Pick => m_Wrapper.m_Paint_Pick;
+        public InputAction @ColorPick => m_Wrapper.m_Paint_ColorPick;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -273,9 +305,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Fill.started += instance.OnFill;
             @Fill.performed += instance.OnFill;
             @Fill.canceled += instance.OnFill;
-            @Pick.started += instance.OnPick;
-            @Pick.performed += instance.OnPick;
-            @Pick.canceled += instance.OnPick;
+            @ColorPick.started += instance.OnColorPick;
+            @ColorPick.performed += instance.OnColorPick;
+            @ColorPick.canceled += instance.OnColorPick;
         }
 
         /// <summary>
@@ -290,9 +322,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Fill.started -= instance.OnFill;
             @Fill.performed -= instance.OnFill;
             @Fill.canceled -= instance.OnFill;
-            @Pick.started -= instance.OnPick;
-            @Pick.performed -= instance.OnPick;
-            @Pick.canceled -= instance.OnPick;
+            @ColorPick.started -= instance.OnColorPick;
+            @ColorPick.performed -= instance.OnColorPick;
+            @ColorPick.canceled -= instance.OnColorPick;
         }
 
         /// <summary>
@@ -326,6 +358,102 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PaintActions" /> instance referencing this action map.
     /// </summary>
     public PaintActions @Paint => new PaintActions(this);
+
+    // Math
+    private readonly InputActionMap m_Math;
+    private List<IMathActions> m_MathActionsCallbackInterfaces = new List<IMathActions>();
+    private readonly InputAction m_Math_Divide;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Math".
+    /// </summary>
+    public struct MathActions
+    {
+        private @PlayerInputActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public MathActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Math/Divide".
+        /// </summary>
+        public InputAction @Divide => m_Wrapper.m_Math_Divide;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Math; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="MathActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(MathActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="MathActions" />
+        public void AddCallbacks(IMathActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MathActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MathActionsCallbackInterfaces.Add(instance);
+            @Divide.started += instance.OnDivide;
+            @Divide.performed += instance.OnDivide;
+            @Divide.canceled += instance.OnDivide;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="MathActions" />
+        private void UnregisterCallbacks(IMathActions instance)
+        {
+            @Divide.started -= instance.OnDivide;
+            @Divide.performed -= instance.OnDivide;
+            @Divide.canceled -= instance.OnDivide;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MathActions.UnregisterCallbacks(IMathActions)" />.
+        /// </summary>
+        /// <seealso cref="MathActions.UnregisterCallbacks(IMathActions)" />
+        public void RemoveCallbacks(IMathActions instance)
+        {
+            if (m_Wrapper.m_MathActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="MathActions.AddCallbacks(IMathActions)" />
+        /// <seealso cref="MathActions.RemoveCallbacks(IMathActions)" />
+        /// <seealso cref="MathActions.UnregisterCallbacks(IMathActions)" />
+        public void SetCallbacks(IMathActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MathActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MathActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="MathActions" /> instance referencing this action map.
+    /// </summary>
+    public MathActions @Math => new MathActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Paint" which allows adding and removing callbacks.
     /// </summary>
@@ -341,11 +469,26 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFill(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Pick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ColorPick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPick(InputAction.CallbackContext context);
+        void OnColorPick(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Math" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="MathActions.AddCallbacks(IMathActions)" />
+    /// <seealso cref="MathActions.RemoveCallbacks(IMathActions)" />
+    public interface IMathActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Divide" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDivide(InputAction.CallbackContext context);
     }
 }

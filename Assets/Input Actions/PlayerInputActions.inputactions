@@ -16,7 +16,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pick",
+                    "name": "ColorPick",
                     "type": "Button",
                     "id": "d0218067-a642-49e6-8d23-55d544989551",
                     "expectedControlType": "",
@@ -44,7 +44,35 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick",
+                    "action": "ColorPick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Math",
+            "id": "d369feec-b251-4400-9346-842ac5e5e4da",
+            "actions": [
+                {
+                    "name": "Divide",
+                    "type": "Button",
+                    "id": "bbf89165-d55e-4f1b-9ae3-83fa410214f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "26e2d718-b2cf-472b-8e19-09fa9a176c06",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Divide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
